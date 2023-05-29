@@ -1,0 +1,17 @@
+|CTAG_1663167284_18455859_4204_0
+cd des
+|s
+brew
+php -v
+|ysql -v
+mysql.
+mysql>
+mysql -v
+cd \document
+mkdir %laragon_root%\www\firstphp
+ls
+echo Hello PHPlsls > %laragon_root%\www\firstphp\index.php
+%laragon_root%\laragon reload
+|tart http://firstphp.test
+start http://www.test
+start http://firstphp.test

@@ -1,0 +1,23 @@
+2023-05-29 10:38:25: Init DataDir at: C:\laragon\data\mysql-8
+2023-05-29 11:30:07: Skip creating auto virtual host for "3D Objects" because the name is invalid.
+2023-05-29 11:30:07: Skip creating auto virtual host for "Creative Cloud Files" because the name is invalid.
+2023-05-29 11:30:07: Skip creating auto virtual host for "Creative Cloud Files (archived) (1)" because the name is invalid.
+2023-05-29 11:30:07: Skip creating auto virtual host for "Creative Cloud Files adolphe.tresor@learninglions.org d6e4128f51e19958dc58b900d68896ae299cc8a4d48a018f436128dbda333039" because the name is invalid.
+2023-05-29 11:30:07: Skip creating auto virtual host for "Google Drive Streaming" because the name is invalid.
+2023-05-29 11:30:07: Skip creating auto virtual host for "My Drive (adolphe.tresor@learninglions.org)" because the name is invalid.
+2023-05-29 11:30:08: Skip creating auto virtual host for "My Drive (adolphenickelnkoranyi@gmail.com)" because the name is invalid.
+2023-05-29 11:30:08: Skip creating auto virtual host for "Saved Games" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "3D Objects" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "Creative Cloud Files" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "Creative Cloud Files (archived) (1)" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "Creative Cloud Files adolphe.tresor@learninglions.org d6e4128f51e19958dc58b900d68896ae299cc8a4d48a018f436128dbda333039" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "Google Drive Streaming" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "My Drive (adolphe.tresor@learninglions.org)" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "My Drive (adolphenickelnkoranyi@gmail.com)" because the name is invalid.
+2023-05-29 11:30:59: Skip creating auto virtual host for "Saved Games" because the name is invalid.
+2023-05-29 12:40:16: Graceful shutdown failed!!! Did you change the root's password? - trying to force it shutdown...
+ERROR: mysqladmin: connect to server at 'localhost' failed
+error: 'Can't connect to MySQL server on 'localhost:3306' (10061)'
+Check that mysqld is running on localhost and that the port is 3306.
+You can check this by doing 'telnet localhost 3306'
+
