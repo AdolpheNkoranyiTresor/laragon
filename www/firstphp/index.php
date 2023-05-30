@@ -18,12 +18,12 @@
 </head>
 <body>
     <!-- <h1>
-      <?php 
+    <?php 
         $greeting = "Hey";
         echo $greeting . " " . "Universe! <br/><br/>";
         echo "$greeting World!";
       ?>
-    </h1> -->
+    </h1> --> 
 
     <?php
         $name ="Dark Matter";
@@ -43,6 +43,6 @@
         the less that symbol followed by the ?, php then echo,
         is equal to less that followed by ? and then the equal sign).
             <?= $message; ?> -->
-    </h1>
+    </h1> 
 </body>
 </html>
