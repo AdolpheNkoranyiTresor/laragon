@@ -56,7 +56,7 @@
         <?php
             $books = [
                 "Do Android Dream of Electronic Sheep",
-                "The Lions in Loropio",
+                "The Lions and the mouse",
                 "Hail Mary"
             ];
         ?>
@@ -82,7 +82,40 @@
             <?php foreach ($books as $book) : ?>
                 <li><?= $book?></li>
             <?php endforeach; ?>
-        </ol>
+        </ol> <br/>
+
+    <!-- Associative Arrays (Interact with individual items within an array) -->
+        <?php
+        $allBooks = [
+            [
+
+            // In PHP, the correct syntax for array keys is the => character (equals sign followed by greater-than sign).
+
+                'title' => 'Lion and the Mouse',
+                'publishedYear' => 2009,
+                'author' => 'Jerry Pinkney',
+                'purchaseUrl' => 'https://en.wikipedia.org/wiki/The_Lion_%26_the_Mouse'
+            ],
+            [
+                'title' => 'Are You My Mother?',
+                'publishedYear' => 1960,
+                'author' => 'P. D. Eastman',
+                'purchaseUrl' => 'https://www.goodreads.com/book/show/197084.Are_You_My_Mother_'
+            ]
+        ];
+        ?>
+
+        <ul>
+            <?php foreach ($allBooks as $allBook) : ?>
+                <li>
+                    <a href="<?= $allBook['purchaseUrl'] ?>">
+                        <?= $allBook['title']; ?>
+                    </a>
+                    <?= ' ' . 'was published in' . ' ' . $allBook['publishedYear'] . ' ' . 'and written by' . ' ' . $allBook['author'] . '.'; ?>
+                </li> 
+            <?php endforeach; ?> 
+        </ul>   
     </div>
+
 </body>
 </html>
