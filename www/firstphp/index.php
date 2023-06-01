@@ -17,74 +17,9 @@
     </style>
 </head>
 <body>
-<!-- Variables -->
-
-    <!-- <h1>
-      <?php 
-        $greeting = "Hey";
-        echo $greeting . " " . "Universe! <br/><br/>";
-        echo "$greeting World!";
-      ?>
-    </h1> --> 
-<!-- Conditionals and booleans  -->
-
-    <?php
-        $name ="Dark Matter";
-        $read = false;
-
-    if($read){
-        $message = "Yes, I have read $name";
-    } else {
-        $message = "No, I have NOT read $name";
-    }
-
-    ?>
-
-    <h1>
-        <?php echo $message; ?>
-        <!-- This is another way of writting the above php code
-        the less that symbol followed by the ?, php then echo,
-        is equal to less that followed by ? and then the equal sign).
-            <?= $message; ?> -->
-    </h1>
-    <div>
-
-<!-- arrays -->
-
-        <h1>Recommended Books</h1>
-
-        <?php
-            $books = [
-                "Do Android Dream of Electronic Sheep",
-                "The Lions and the mouse",
-                "Hail Mary"
-            ];
-        ?>
-
-        <ul>
-
-        <!-- Render/ Loop over the "books" array -->
-            <!-- Use concatination -->
-            <?php foreach ($books as $book){
-                echo "<li>" . $book . "</li>";
-            }
-            ?> <br/>
-            <!-- Inline the array in one go -->
-            <?php foreach ($books as $book){
-                echo "<li>$book</li>";
-            }
-
-            ?>
-        </ul>
-
-        <!-- Short hand to use the foreach sentax to loop over each item  -->
-        <ol>
-            <?php foreach ($books as $book) : ?>
-                <li><?= $book?></li>
-            <?php endforeach; ?>
-        </ol> <br/>
 
     <!-- Associative Arrays (Interact with individual items within an array) -->
+        <h1>List of books filtered by author:</h1>
         <?php
             $allBooks = [
                 [
@@ -115,22 +50,92 @@
                     'purchaseUrl' => 'https://www.amazon.com/Martian-Andy-Weir/dp/0553418025'  
                 ],
             ];
+            function filterByAuthor($allBooks, $author){
+                $filteredBooks = [];
 
+                foreach ($allBooks as $allBook){
+                    if ($allBook['author'] === $author) {
+                        $filteredBooks[] = $allBook;
+                    }
+                }
+
+                return $filteredBooks;
+            }
         ?>
 
         <ul>
-            <?php foreach ($allBooks as $allBook) : ?>
-                <?php if ($allBook['author'] == 'Andy Weir') : ?>
-                    <li>
-                        <a href="<?= $allBook['purchaseUrl'] ?>">
-                            <?= $allBook['title']; ?>
-                        </a>
-                        <?= ' ' . 'was published in' . ' ' . $allBook['publishedYear'] . ' ' . 'and written by' . ' ' . $allBook['author'] . '.'; ?>
-                    </li> 
-                <?php endif; ?>
+            <?php foreach (filterByAuthor($allBooks, 'Andy Weir') as $allBook) : ?>
+                <li>
+                    <?= $allBook['title']; ?>
+                    <?= ' ' . 'was published in' . ' ' . $allBook['publishedYear'] . ' ' . 'and written by' . ' ' . $allBook['author'] . '.'; ?>
+                </li>
             <?php endforeach; ?> 
         </ul>   
     </div>
+    
+<!-- ASSIGNMENT: list of favorites movies, filtered by Released Year >= to 2000 -->
+
+    <div>
+        <?php
+            $favoriteMovies = [
+                [
+                    'title' => 'Inception',
+                    'releasedYear' => 2010,
+                    'writer' => 'Christopher Nolan'
+                ],
+                [
+                    'title' => 'The Dark Knight',
+                    'releasedYear' => 2008,
+                    'writer' => 'Christopher Nolan'
+                ],
+                [
+                    'title' => 'Pulp Fiction',
+                    'releasedYear' => 1994,
+                    'writer' => 'Quentin Tarantino'
+                ],
+                [
+                    'title' => 'The Shawshank Redemption',
+                    'releasedYear' => 1994,
+                    'writer' => 'Frank Darabont'
+                ],
+                [
+                    'title' => 'The Matrix',
+                    'releasedYear' => 1999,
+                    'writer' => 'Lana Wachowski'
+                ],
+                [
+                    'title' => 'The Social Network',
+                    'releasedYear' => 2010,
+                    'writer' => 'Aaron Sorkin'
+                ],
+            ];
+
+            function filterMoviesByYear($favoriteMovies, $releasedYear){
+                $filteredMovies = [];
+
+                foreach ($favoriteMovies as $fMovies){
+                    if ($fMovies['releasedYear'] >= $releasedYear) {
+                        $filteredMovies[] = $fMovies;
+                    }
+                }
+
+                return $filteredMovies;
+            }
+            
+            $filteredMovies = filterMoviesByYear($favoriteMovies, 2000);
+        ?>
+
+        
+        <h2>List of my Favorites Movies:</h2>
+        <ul>
+            <?php foreach ($filteredMovies as $fMovies) : ?>
+                <li>
+                    <?= 'In ' . $fMovies['releasedYear'] . ' ' . $fMovies['title'] . ' ' . 'was written by' . ' ' . $fMovies['writer'] . '.'; ?>
+                </li> 
+            <?php endforeach; ?> 
+        </ul>  
+    </div>
+
 
 </body>
 </html>
