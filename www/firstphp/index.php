@@ -86,33 +86,48 @@
 
     <!-- Associative Arrays (Interact with individual items within an array) -->
         <?php
-        $allBooks = [
-            [
+            $allBooks = [
+                [
 
-            // In PHP, the correct syntax for array keys is the => character (equals sign followed by greater-than sign).
+                // In PHP, the correct syntax for array keys is the => character (equals sign followed by greater-than sign).
 
-                'title' => 'Lion and the Mouse',
-                'publishedYear' => 2009,
-                'author' => 'Jerry Pinkney',
-                'purchaseUrl' => 'https://en.wikipedia.org/wiki/The_Lion_%26_the_Mouse'
-            ],
-            [
-                'title' => 'Are You My Mother?',
-                'publishedYear' => 1960,
-                'author' => 'P. D. Eastman',
-                'purchaseUrl' => 'https://www.goodreads.com/book/show/197084.Are_You_My_Mother_'
-            ]
-        ];
+                    'title' => 'Lion and the Mouse',
+                    'author' => 'Jerry Pinkney',
+                    'publishedYear' => 2009,
+                    'purchaseUrl' => 'https://en.wikipedia.org/wiki/The_Lion_%26_the_Mouse'
+                ],
+                [
+                    'title' => 'Are You My Mother?',
+                    'author' => 'P. D. Eastman',
+                    'publishedYear' => 1960,
+                    'purchaseUrl' => 'https://www.goodreads.com/book/show/197084.Are_You_My_Mother_'
+                ],
+                [
+                    'title' => 'Project Hail Mary',
+                    'author' => 'Andy Weir',
+                    'publishedYear' => 2021,
+                    'purchaseUrl' => 'https://www.amazon.com/Project-Hail-Mary-Andy-Weir/dp/0593135202'  
+                ],
+                [
+                    'title' => 'The Martian',
+                    'author' => 'Andy Weir',
+                    'publishedYear' => 2011,
+                    'purchaseUrl' => 'https://www.amazon.com/Martian-Andy-Weir/dp/0553418025'  
+                ],
+            ];
+
         ?>
 
         <ul>
             <?php foreach ($allBooks as $allBook) : ?>
-                <li>
-                    <a href="<?= $allBook['purchaseUrl'] ?>">
-                        <?= $allBook['title']; ?>
-                    </a>
-                    <?= ' ' . 'was published in' . ' ' . $allBook['publishedYear'] . ' ' . 'and written by' . ' ' . $allBook['author'] . '.'; ?>
-                </li> 
+                <?php if ($allBook['author'] == 'Andy Weir') : ?>
+                    <li>
+                        <a href="<?= $allBook['purchaseUrl'] ?>">
+                            <?= $allBook['title']; ?>
+                        </a>
+                        <?= ' ' . 'was published in' . ' ' . $allBook['publishedYear'] . ' ' . 'and written by' . ' ' . $allBook['author'] . '.'; ?>
+                    </li> 
+                <?php endif; ?>
             <?php endforeach; ?> 
         </ul>   
     </div>
