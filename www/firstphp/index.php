@@ -18,7 +18,7 @@
 </head>
 <body>
 
-        <h1>List of books filtered by author and the released year:</h1>
+        <h1>List of books filtered by author and the released/publised year:</h1>
         <?php
             $allBooks = [
                 [
@@ -50,28 +50,28 @@
                 ],
             ];
 
-        // Lambda function
+        // Use gogin with a Lambda function
 
-            $filterByAuthor = function ($allBooks, $author){
-                $filteredBooks = [];
+            function filter($items, $key, $value){
+                $filteredItems = [];
 
-                foreach ($allBooks as $allBook){
-                    if ($allBook['author'] === $author) {
-                        $filteredBooks[] = $allBook;
+                foreach ($items as $item){
+                    if ($item[$key] === $value) {
+                        $filteredItems[] = $item;
                     }
                 }
 
-                return $filteredBooks;
+                return $filteredItems;
             };
 
-            $filteredBooks = $filterByAuthor($allBooks, 'P. D. Eastman');
+            $filteredItems = filter($allBooks, 'publishedYear', 2011);
         ?>
 
         <ul>
-            <?php foreach ($filteredBooks as $allBook) : ?>
+            <?php foreach ($filteredItems as $item) : ?>
                 <li>
-                    <?= $allBook['title']; ?>
-                    <?= ' ' . 'was published in' . ' ' . $allBook['publishedYear'] . ' ' . 'and written by' . ' ' . $allBook['author'] . '.'; ?>
+                    <?= $item['title']; ?>
+                    <?= ' ' . 'was published in' . ' ' . $item['publishedYear'] . ' ' . 'and written by' . ' ' . $item['author'] . '.'; ?>
                 </li>
             <?php endforeach; ?> 
         </ul>   
