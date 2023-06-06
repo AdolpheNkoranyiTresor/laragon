@@ -50,7 +50,7 @@
                 ],
             ];
 
-        // Lambda functions
+        // Lambda function
 
             $filterByAuthor = function ($allBooks, $author){
                 $filteredBooks = [];
