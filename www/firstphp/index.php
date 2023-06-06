@@ -50,13 +50,13 @@
                 ],
             ];
 
-        // Use gogin with a Lambda function
+        // Use gogin with an anonymus or a Lambda function
 
-            function filter($items, $key, $value){
+            function filter($items, $fn){
                 $filteredItems = [];
 
                 foreach ($items as $item){
-                    if ($item[$key] === $value) {
+                    if ($fn($item)) {
                         $filteredItems[] = $item;
                     }
                 }
@@ -64,14 +64,16 @@
                 return $filteredItems;
             };
 
-            $filteredItems = filter($allBooks, 'publishedYear', 2011);
+            $filteredBooks = filter($allBooks, function ($book){
+                return $book['publishedYear'] >= 1990;
+            });
         ?>
 
         <ul>
-            <?php foreach ($filteredItems as $item) : ?>
+            <?php foreach ($filteredBooks as $book) : ?>
                 <li>
-                    <?= $item['title']; ?>
-                    <?= ' ' . 'was published in' . ' ' . $item['publishedYear'] . ' ' . 'and written by' . ' ' . $item['author'] . '.'; ?>
+                    <?= $book['title']; ?>
+                    <?= ' ' . 'was published in' . ' ' . $book['publishedYear'] . ' ' . 'and written by' . ' ' . $book['author'] . '.'; ?>
                 </li>
             <?php endforeach; ?> 
         </ul>   
