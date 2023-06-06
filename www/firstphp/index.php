@@ -17,7 +17,7 @@
     </style>
 </head>
 <body>
-
+    <div>    
         <h1>List of books filtered by author and the released/publised year:</h1>
         <?php
             $allBooks = [
@@ -52,9 +52,8 @@
 
         // Use a PHP duiltin function called array_filter
 
-            
             $filteredBooks = array_filter($allBooks, function ($book){
-                return $book['author'] == 'Andy Weir';
+                return $book['title'] === 'Are You My Mother?';
             });
         ?>
 
@@ -67,6 +66,37 @@
             <?php endforeach; ?> 
         </ul>   
     </div>
+
+    <!-- Assignment -->
+    
+    <h1>List of books that were first published between the years 1950 and 2020:</h1>
+   
+    <?php
+    function filterBooks($items, $fn){
+                $filteredItems = [];
+
+                foreach ($items as $item){
+                    if ($fn($item)) {
+                        $filteredItems[] = $item;
+                    }
+                }
+
+                return $filteredItems;
+            };
+
+            $filteredBooks = filterBooks($allBooks, function ($book){
+                return $book['publishedYear'] >= 1950 && $book['publishedYear'] <= 2020;
+            });
+        ?>
+
+    <ul>
+        <?php foreach ($filteredBooks as $book) : ?>
+            <li>
+                <?= $book['title']; ?>
+                <?= ' ' . 'was published in' . ' ' . $book['publishedYear'] . ' ' . 'and written by' . ' ' . $book['author'] . '.'; ?>
+            </li>
+        <?php endforeach; ?> 
+    </ul>  
 
 </body>
 </html>
