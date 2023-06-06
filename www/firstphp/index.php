@@ -50,22 +50,11 @@
                 ],
             ];
 
-        // Use gogin with an anonymus or a Lambda function
+        // Use a PHP duiltin function called array_filter
 
-            function filter($items, $fn){
-                $filteredItems = [];
-
-                foreach ($items as $item){
-                    if ($fn($item)) {
-                        $filteredItems[] = $item;
-                    }
-                }
-
-                return $filteredItems;
-            };
-
-            $filteredBooks = filter($allBooks, function ($book){
-                return $book['publishedYear'] >= 1990;
+            
+            $filteredBooks = array_filter($allBooks, function ($book){
+                return $book['author'] == 'Andy Weir';
             });
         ?>
 
