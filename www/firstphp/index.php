@@ -2,7 +2,7 @@
 
 $heading = "Home";
 
-//dump and die
+//dump and die function
 // echo "<pre>";
 // var_dump($_SERVER);
 // echo "</pre>";
@@ -18,6 +18,6 @@ function dd($value) {
     die();
 }
 
-dd($_SERVER);
+echo $_SERVER['REQUEST_URI'];
 
 require 'views/index.view.php';
