@@ -17,5 +17,5 @@ function dd($value) {
 }
 
 function urlIs($value) {
-    return $_SERVER['REQUEST_URI'] == $value;
+    return $_SERVER['REQUEST_URI'] === $value;
 }
