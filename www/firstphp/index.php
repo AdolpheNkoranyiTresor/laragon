@@ -2,29 +2,24 @@
 
 require 'functions.php';
 
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+// require 'router.php';
 
-$routes = [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/contact' => 'controllers/contact.php',
-    '/ourmission' => 'controllers/ourmission.php',
-];
+//connect to our MySQL database
 
-Function routerToController($uri, $routes){
-    if (array_key_exists($uri, $routes)){
-        require $routes[$uri];
-    } else {
-        abort();
+class Person {
+    public $name;
+    public $age;
+
+    public function breathe()
+    {
+        echo $this->name . ' ' . 'is breathing!';
     }
 }
 
-function abort($code = 404) {
-    http_response_code($code);
+$person = new Person();
 
-    require "views/{$code}.php";
 
-    die();
-}
+$person->name = 'Jack Boer';
+$person->age = 30;
 
-routerToController($uri, $routes);
+$person->breathe();
