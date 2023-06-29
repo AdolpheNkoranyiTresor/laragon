@@ -6,20 +6,14 @@ require 'functions.php';
 
 //connect to our MySQL database
 
-class Person {
-    public $name;
-    public $age;
+$dsn = "mysql:host=localhost;port=3306;user=root;dbname=firstphp;charset=utf8mb4";
+$pdo = new PDO($dsn);
 
-    public function breathe()
-    {
-        echo $this->name . ' ' . 'is breathing!';
-    }
+$statement = $pdo->prepare("SELECT * From test;");
+$statement->execute();
+
+$test = $statement->fetchAll(PDO::FETCH_ASSOC );
+
+foreach ($test as $result){
+    echo "<li>" . $result['user_name'] . " " . $result['email'] . "</li>";
 }
-
-$person = new Person();
-
-
-$person->name = 'Jack Boer';
-$person->age = 30;
-
-$person->breathe();
