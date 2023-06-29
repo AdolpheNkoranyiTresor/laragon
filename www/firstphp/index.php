@@ -11,11 +11,12 @@ $routes = [
     '/ourmission' => 'controllers/ourmission.php',
 ];
 
-
-if (array_key_exists($uri, $routes)){
-    require $routes[$uri];
-} else {
-    abort();
+Function routerToController($uri, $routers){
+    if (array_key_exists($uri, $routes)){
+        require $routes[$uri];
+    } else {
+        abort();
+    }
 }
 
 function abort($code = 404) {
