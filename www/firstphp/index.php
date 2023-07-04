@@ -6,14 +6,9 @@ require 'functions.php';
 
 include 'Database.php';
 
- $config = [
-                'host' => 'localhost',
-                'port' => '3306',
-                'dbname' => 'firstphp',
-                'charset' => 'utf8mb4'
-            ];
+$config = include('config.php');
 
-$db = new Database($config);
+$db = new Database($config['database']);
 $test = $db->query("SELECT * From test;")->fetchALL();
 
 dd($test);
