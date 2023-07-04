@@ -9,6 +9,10 @@ include 'Database.php';
 $config = include('config.php');
 
 $db = new Database($config['database']);
-$test = $db->query("SELECT * From test;")->fetchALL();
+
+$id = $_GET['id'];
+$query = "SELECT * From test WHERE id = {$id}";
+
+$test = $db->query($query)->fetch();
 
 dd($test);
