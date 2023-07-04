@@ -7,6 +7,6 @@ require 'functions.php';
 include 'Database.php';
 
 $db = new Database();
-$test = $db->query("SELECT * From test;")->fetchALL(PDO::FETCH_ASSOC);
+$test = $db->query("SELECT * From test;")->fetchALL();
 
 dd($test);

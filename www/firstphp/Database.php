@@ -8,8 +8,21 @@
 
         public function __construct()
         {
-            $dsn = "mysql:host=localhost;port=3306;user=root;dbname=firstphp;charset=utf8mb4";
-            $this->connection = new PDO($dsn);
+            $config = [
+                'host' => 'localhost',
+                'port' => '3306',
+                'dbname' => 'firstphp',
+                'charset' => 'utf8mb4'
+            ];
+
+            $dsn = 'mysql:' . http_build_query($config, '', ';');
+
+            //The above dsn and the below line of codes are functionally equivalent
+
+            // $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
+            $this->connection = new PDO($dsn, 'root', '', [
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ]);
         }
 
 
