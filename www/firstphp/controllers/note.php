@@ -7,9 +7,20 @@ $db = new Database($config['database']);
 
 $heading = "Note";
 
-$note = $db->query("SELECT * From notes where user_id = :user and id = :id",[
-    'user' => 1,
+$note = $db->query("SELECT * From notes where id = :id", [
     'id' => $_GET['id']
-    ])->fetch();
+])->fetch();
+
+if (! $note){
+    abort();
+}
+
+$currentUserId = 1;
+
+$forbidden = 403;
+
+if ($note['user_id'] !== $currentUserId) {
+    abort(403);
+}
 
 require 'views/note.view.php';
