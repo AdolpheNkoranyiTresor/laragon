@@ -1,5 +1,9 @@
 <?php
 
+require 'Validator.php';
+
+$config = require 'config.php';
+
 $config = include('config.php');
 
 $db = new Database($config['database']);
@@ -9,7 +13,10 @@ $heading = "Create note";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors = [];
 
-    if (strlen($_POST['body']) == 0){
+    $validator = new Validator();
+
+
+    if ($validator->string($_POST['body'])){
         $errors['body'] = 'A body is required in order to submit the note!';
     }
 
