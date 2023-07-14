@@ -1,5 +1,5 @@
 <?php
 
-$heading = "Our Mission";
-
-require 'views/ourmission.view.php';
+view('index.view.php', [
+    'heading' => 'Our Mission',
+]);
